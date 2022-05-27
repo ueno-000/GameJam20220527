@@ -8,7 +8,7 @@ public class EnemyFallMove : MonoBehaviour
     private Vector3 playerPosition;
     private Vector3 enemyPosition;
 
-    [SerializeField] public int _enemyHP;
+    [SerializeField] public int _enemyHP = 1;
 
     void Start()
     {
@@ -16,7 +16,7 @@ public class EnemyFallMove : MonoBehaviour
         playerPosition = po.transform.position;
         enemyPosition = transform.position;
 
-        _enemyHP = 1;
+        //_enemyHP = 1;
     }
 
     // Update is called once per frame
@@ -35,15 +35,6 @@ public class EnemyFallMove : MonoBehaviour
             enemyPosition.y = enemyPosition.y - 0.01f;
         }
 
-        if (playerPosition.x > enemyPosition.x)
-        {
-            enemyPosition.x = enemyPosition.x + 0.01f;
-        }
-
-        else if (playerPosition.x < enemyPosition.x)
-        {
-            enemyPosition.x = enemyPosition.x - 0.01f;
-        }
 
         transform.position = enemyPosition;
 

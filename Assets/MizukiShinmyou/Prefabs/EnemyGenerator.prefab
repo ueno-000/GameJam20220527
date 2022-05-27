@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyList:
-  - {fileID: 9049452892785493141, guid: b52ff62e8339ed845bc2bda2c94110fc, type: 3}
+  - {fileID: 1697694186378656971, guid: e685c12a280cbdc428522ac1dc2e7aca, type: 3}
   pos: {fileID: 2824497075262944727}
   pos2: {fileID: 2824497075262944727}
   _genarateFram: 300
