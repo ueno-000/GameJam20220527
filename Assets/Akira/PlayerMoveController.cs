@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PlayerMoveController : MonoBehaviour
 {
-    [SerializeField] public float _speed = 5f;
+    [SerializeField] public float _speed = 5f; //SerializeField...unity内で設定(数値なら数値)を変えられる
     [SerializeField] float _jumpPower = 10f;
 
-    bool _isGround;
+    bool _isGround; //bool...真偽(true or false)の判定
 
     private float _h;
     private float speed;
@@ -20,11 +20,14 @@ public class PlayerMoveController : MonoBehaviour
     void Update()
     {
         _h = Input.GetAxis("Horizontal");
-
+        　　　　　　　　  //↑↓InputManagerで"Horizontal","Jump"が作られているから(GetKeyCode"Space")といったことをしなくていい
         if (Input.GetButtonDown("Jump") && _isGround == true)
+            //"Jump"のキーが押され、かつ、_isGroundがtrueの時に実行される
         {
-            _rb.AddForce(Vector2.up*_jumpPower,ForceMode2D.Impulse);
-            _isGround = false;
+            _rb.AddForce(Vector2.up*_jumpPower,ForceMode2D.Impulse); //Vector2...2次元(Vector2.up...y軸方向に力が加えられる)
+             //↑ここまででジャンプはできる
+             //着地以降の操作
+           _isGround = false; //_isGroundを「true → false」に変更
         }
     }
     void FixedUpdate()
@@ -48,6 +51,8 @@ public class PlayerMoveController : MonoBehaviour
         _rb.velocity = new Vector2(speed, _rb.velocity.y);
     }
 
+    //接地したらジャンプできる(ジャンプ後に_isGroundをfalse→trueに戻し、
+    //　　　　　　　　　　　　 接地している時にジャンプできるようにする)  24～31のif文に戻る
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Ground")
