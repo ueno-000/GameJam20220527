@@ -8,35 +8,35 @@ public class PlayerValueScript : MonoBehaviour
     /// <summary>
     /// HP‚Ì’l
     /// </summary>
-    [SerializeField] int _payerHP = 20;
+    [SerializeField] int _playerHP = 20;
     int _maxHP;
 
     [SerializeField] GameObject HPController;
-    [SerializeField] HPController _helth;
+    [SerializeField] HPController _health;
     // Start is called before the first frame update
 
     public int HP
     {
         set
         {
-            _payerHP = Mathf.Clamp(value,0,_maxHP);
+            _playerHP = Mathf.Clamp(value,0,_maxHP);
         }
         get
         {
-            return _payerHP;
+            return _playerHP;
         }
     }
 
     void Start()
     {
         _maxHP = HPController.GetComponent<HPController>()._maxHP;
-        _helth = _helth.GetComponent<HPController>();
+        _health = _health.GetComponent<HPController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        _helth.UpdateSlider(_payerHP);
+        _health.UpdateSlider(_playerHP);
         
     }
 }
