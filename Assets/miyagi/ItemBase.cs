@@ -1,0 +1,11 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ItemBase : MonoBehaviour
+{
+public virtual void PickItem()
+    {
+        Debug.Log(this.ToString() + "ÇèEÇ¡ÇΩ");
+    }
+}

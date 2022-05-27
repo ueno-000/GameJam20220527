@@ -18,4 +18,12 @@ public class GameManager : MonoBehaviour
         _score += addScore;
         _resultScore.text = "Score :" + _score;
     }
+
+   /* private void Update()
+    {
+        if(_playerHp <= 0)
+        {
+            isGameOver = true;
+        }
+    }*/
 }
