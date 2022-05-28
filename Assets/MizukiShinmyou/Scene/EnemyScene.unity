@@ -154,6 +154,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6500311848054858733, guid: fa95c42a04f7b6f448af3e6a9f548259, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: dfc30bbafd5e8de4cb6223121b058be4, type: 2}
     - target: {fileID: 6585244651999658425, guid: fa95c42a04f7b6f448af3e6a9f548259, type: 3}
       propertyPath: m_Name
       value: EnemyBoss
