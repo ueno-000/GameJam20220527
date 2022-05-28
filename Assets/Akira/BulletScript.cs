@@ -37,6 +37,7 @@ public class BulletScript : MonoBehaviour
         if (col.gameObject.tag == "Enemy")
         {
             col.gameObject.GetComponent<IDamage>().ReceiveDamage(_damageValue);
+
         }
 
         Destroy(this.gameObject,1f);

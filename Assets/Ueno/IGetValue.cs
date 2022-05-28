@@ -1,4 +1,4 @@
 public interface IGetValue
 {
-    void GetEXP(int exp);
+    void GetPoint(int score);
 }
