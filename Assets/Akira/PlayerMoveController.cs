@@ -27,11 +27,17 @@ public class PlayerMoveController : MonoBehaviour
     float _scaleX;
     private float _h;
     private float speed;
-   
+
+    /// <summary>SE</summary>
+    [SerializeField] AudioSource _sound1;
+
+    Animator _anim = default;
+
     private Rigidbody2D _rb;
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _anim = GetComponent<Animator>();
     }
     void Update()
     {
@@ -50,6 +56,7 @@ public class PlayerMoveController : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             var go  = Instantiate(_bullet,_muzzle.position,this.transform.rotation);
+            _sound1.PlayOneShot(_sound1.clip);
 
             if (this.transform.localScale.x < 0)
             {
@@ -112,11 +119,30 @@ public class PlayerMoveController : MonoBehaviour
 
     //接地したらジャンプできる(ジャンプ後に_isGroundをfalse→trueに戻し、
     //　　　　　　　　　　　　 接地している時にジャンプできるようにする)  24～31のif文に戻る
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Ground")
         {
             _isGround = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            _isGround = false;
+        }
+    }
+
+    private void LateUpdate()
+    {
+        // アニメーションを制御する
+        if (_anim)
+        {
+            _anim.SetFloat("SpeedX", Mathf.Abs(_rb.velocity.x));
+            //m_anim.SetFloat("SpeedY", m_rb.velocity.y);
+            _anim.SetBool("_isGround", _isGround);
         }
     }
 }
