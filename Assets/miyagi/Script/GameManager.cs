@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour,IGetValue
 {
 
-    [SerializeField]public int _score = 0;
+    [SerializeField]public static int _score = 0;
  public void GetPoint(int score)
     {
         _score += score;
