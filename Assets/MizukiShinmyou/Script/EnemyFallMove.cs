@@ -37,7 +37,7 @@ public class EnemyFallMove : MonoBehaviour,IDamage
         if (_enemyHP == 0)
         {
             Destroy(gameObject);
-            GameManager._score += 10;
+            //GameManager._score += 10;
         }
     }
     void OnCollisionEnter2D(Collision2D col)
