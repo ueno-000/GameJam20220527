@@ -6,17 +6,16 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour,IGetValue
 {
-    private PlayerValueScript pvs;
     [SerializeField]public static int _score = 0;
 
     void Start()
     {
-        pvs = GetComponent<PlayerValueScript>();
+
     }
 
     void Update()
     {
-        if(pvs._playerHP <= 0)
+        if(PlayerValueScript._playerHP <= 0)
         {
             SceneManager.LoadScene("ResultScene");
         }
