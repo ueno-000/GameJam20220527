@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class PlayerValueScript : MonoBehaviour
+public class PlayerValueScript : MonoBehaviour,IDamage
 {
     /// <summary>
     /// HP‚Ì’l
@@ -38,5 +38,10 @@ public class PlayerValueScript : MonoBehaviour
     {
         _health.UpdateSlider(_playerHP);
         
+    }
+
+    public void ReceiveDamage(int damage)
+    {
+        _playerHP -= damage;
     }
 }
