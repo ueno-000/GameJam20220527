@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class EnemyMove : MonoBehaviour,IDamage
 {
@@ -52,6 +53,12 @@ public class EnemyMove : MonoBehaviour,IDamage
             Destroy(gameObject);
             //GameManager._score += 10;
         }
+
+        /*if (Input.GetKeyDown(KeyCode.O))
+        {
+            state = "DAMAGE";
+            Debug.Log("Damage");
+        }*///デバック用
 
         ChangeAnimation();
     }

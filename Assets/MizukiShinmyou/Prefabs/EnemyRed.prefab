@@ -384,7 +384,7 @@ Animator:
   m_GameObject: {fileID: 1697694186378656971}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d03d2649a2109214c95ec488775e98dd, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7387477dd5a85594194bc416e0300ff8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -423,3 +423,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyHP: 1
+  _damageValue: 2
+  _receivePoint: 2
