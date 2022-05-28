@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyFallMove : MonoBehaviour
+public class EnemyFallMove : MonoBehaviour,IDamage
 {
     private GameObject po;
     private Vector3 playerPosition;
     private Vector3 enemyPosition;
 
-    [SerializeField] public int _enemyHP = 1;
+    [Header("EnemyÇÃHP"), SerializeField] public int _enemyHP = 1;
+    [Header("EnemyÇÃçUåÇíl"), SerializeField] public int _damageValue = 2;
 
     void Start()
     {
@@ -41,17 +42,22 @@ public class EnemyFallMove : MonoBehaviour
         if (_enemyHP == 0)
         {
             Destroy(gameObject);
+            GameManager._score += 10;
         }
     }
     void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.tag == "Player")
         {
-            _enemyHP--;
+            col.gameObject.GetComponent<IDamage>().ReceiveDamage(_damageValue);
         }
-        else
+        else if (col.gameObject.tag == "Ground")
         {
-            _enemyHP--;
+            Destroy(gameObject);
         }
+    }
+    public void ReceiveDamage(int damage)
+    {
+        _enemyHP -= damage;
     }
 }
