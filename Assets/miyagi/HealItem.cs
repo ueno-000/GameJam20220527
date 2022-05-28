@@ -15,6 +15,5 @@ public class HealItem : ItemBase
     public override void PickItem()
     {
         base.PickItem();
-        GetComponent<AudioSource>().Play();
     }
 }
