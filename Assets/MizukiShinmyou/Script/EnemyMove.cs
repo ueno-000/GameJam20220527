@@ -13,6 +13,10 @@ public class EnemyMove : MonoBehaviour,IDamage
     [Header("Enemyの攻撃値"), SerializeField] public int _damageValue = 2;
     [Header("Enemyの保有ポイント"), SerializeField] public int _receivePoint = 2;
 
+    private Animator animator;
+    string state;
+    string oldstate;
+
     GameObject gamemanager;
     void Start()
     {
@@ -20,6 +24,7 @@ public class EnemyMove : MonoBehaviour,IDamage
         gamemanager = GameObject.Find("ScoreManager");
         playerPosition = po.transform.position;
         enemyPosition = transform.position;
+        animator = GetComponent<Animator>();
         //_enemyHP = 1;
     }
 
@@ -47,6 +52,8 @@ public class EnemyMove : MonoBehaviour,IDamage
             Destroy(gameObject);
             //GameManager._score += 10;
         }
+
+        ChangeAnimation();
     }
 
     void OnCollisionEnter2D(Collision2D col)
@@ -60,6 +67,26 @@ public class EnemyMove : MonoBehaviour,IDamage
 
     public void ReceiveDamage(int damage)
     {
+        state = "DAMAGE";
         _enemyHP -= damage;
+    }
+    
+    void ChangeAnimation()
+    {
+        if(oldstate != state)
+        {
+            switch (state)
+            {
+                case "DAMAGE":
+                    animator.SetBool("Idle", false);
+                    animator.SetBool("Damage",true); ;
+                    break;
+                default:
+                    animator.SetBool("Idle", false);
+                    animator.SetBool("Damage", false);
+                    break;
+            }
+            oldstate = state;
+        }
     }
 }
