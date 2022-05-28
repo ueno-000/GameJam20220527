@@ -11,13 +11,15 @@ public class EnemyMove : MonoBehaviour,IDamage
 
     [Header("EnemyのHP"),SerializeField] public int _enemyHP = 1;
     [Header("Enemyの攻撃値"), SerializeField] public int _damageValue = 2;
-    
+    [Header("Enemyの保有ポイント"), SerializeField] public int _receivePoint = 2;
+
+    GameObject scoremanager;
     void Start()
     {
         po = GameObject.FindWithTag("Player");
+        scoremanager = GameObject.Find("ScoreManager");
         playerPosition = po.transform.position;
         enemyPosition = transform.position;
-
         //_enemyHP = 1;
     }
 
@@ -41,8 +43,9 @@ public class EnemyMove : MonoBehaviour,IDamage
 
         if (_enemyHP <= 0)
         {
+            scoremanager.GetComponent<IGetValue>().GetPoint(_receivePoint);
             Destroy(gameObject);
-            GameManager._score += 10;
+            //GameManager._score += 10;
         }
     }
 
