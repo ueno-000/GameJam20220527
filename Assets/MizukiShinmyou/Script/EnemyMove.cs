@@ -22,7 +22,7 @@ public class EnemyMove : MonoBehaviour,IDamage
     void Start()
     {
         po = GameObject.FindWithTag("Player");
-        gamemanager = GameObject.Find("ScoreManager");
+        gamemanager = GameObject.Find("GameManager");
         playerPosition = po.transform.position;
         enemyPosition = transform.position;
         animator = GetComponent<Animator>();
