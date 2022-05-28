@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMove : MonoBehaviour
+public class EnemyMove : MonoBehaviour,IDamage
 {
     // Start is called before the first frame update
     private GameObject po;
     private Vector3 playerPosition;
     private Vector3 enemyPosition;
 
-    [SerializeField] public int _enemyHP = 1;
+    [Header("EnemyÇÃHP"),SerializeField] public int _enemyHP = 1;
+    [Header("EnemyÇÃçUåÇíl"), SerializeField] public int _damageValue = 2;
     
     void Start()
     {
@@ -38,7 +39,7 @@ public class EnemyMove : MonoBehaviour
 
         transform.position = enemyPosition;
 
-        if (_enemyHP == 0)
+        if (_enemyHP <= 0)
         {
             Destroy(gameObject);
             GameManager._score += 10;
@@ -47,13 +48,15 @@ public class EnemyMove : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag =="Player")
+
+        if (col.gameObject.tag == "Player")
         {
-            _enemyHP--;
+            col.gameObject.GetComponent<IDamage>().ReceiveDamage(_damageValue);
         }
-        else
-        {
-            _enemyHP --;
-        }
+    }
+
+    public void ReceiveDamage(int damage)
+    {
+        _enemyHP -= damage;
     }
 }
