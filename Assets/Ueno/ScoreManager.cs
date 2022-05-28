@@ -15,7 +15,7 @@ public class ScoreManager : MonoBehaviour
 
     void Start()
     {
-       
+        _score = GameManager._score;
         // 指定したupdateNumberまでカウントアップ・カウントダウンする
         DOTween.To(
             () => _minScore,
