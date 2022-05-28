@@ -8,7 +8,7 @@ public class PlayerValueScript : MonoBehaviour,IDamage
     /// <summary>
     /// HP‚Ì’l
     /// </summary>
-    [SerializeField] public static int _playerHP = 20;
+    [SerializeField] public static int _playerHP = 100;
     int _maxHP;
 
     [SerializeField] GameObject HPController;
@@ -25,6 +25,11 @@ public class PlayerValueScript : MonoBehaviour,IDamage
         {
             return _playerHP;
         }
+    }
+
+    private void Awake()
+    {
+        _playerHP = 100;
     }
 
     void Start()

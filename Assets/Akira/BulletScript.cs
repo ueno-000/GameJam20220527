@@ -29,7 +29,6 @@ public class BulletScript : MonoBehaviour
             rb.velocity = Vector2.left * _speed;
         }
         // ¶‘¶ŠúŠÔ‚ªŒo‰ß‚µ‚½‚ç©•ª©g‚ğ”jŠü‚·‚é
-        Destroy(this.gameObject, _lifeTime);
     }
 
     private void OnCollisionEnter2D(Collision2D col)
@@ -37,9 +36,9 @@ public class BulletScript : MonoBehaviour
         if (col.gameObject.tag == "Enemy")
         {
             col.gameObject.GetComponent<IDamage>().ReceiveDamage(_damageValue);
-
+            Destroy(this.gameObject, 1f);
         }
-
+        else
         Destroy(this.gameObject,1f);
     }
 }

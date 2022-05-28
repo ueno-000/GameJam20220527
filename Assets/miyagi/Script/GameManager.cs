@@ -8,19 +8,18 @@ public class GameManager : MonoBehaviour,IGetValue
 {
     [SerializeField]public static int _score = 0;
     [SerializeField]public Text scoreText;
-
+    [SerializeField] GameObject config;
     void Start()
     {
-        scoreText = GetComponent<Text>();
+        _score = 0;
     }
 
     void Update()
     {
-        if(PlayerValueScript._playerHP <= 0)
+        if (PlayerValueScript._playerHP <= 0)
         {
             SceneManager.LoadScene("ResultScene");
-        }
-
+        }  //      if()
        scoreText.text = _score.ToString();
     }
  public void GetPoint(int score)
