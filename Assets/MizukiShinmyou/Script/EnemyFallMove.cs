@@ -5,8 +5,10 @@ using UnityEngine;
 public class EnemyFallMove : MonoBehaviour,IDamage
 {
     private GameObject po;
-    private Vector3 playerPosition;
+    //private Vector3 playerPosition;
     private Vector3 enemyPosition;
+
+    private Collider2D expBomb;
 
     [Header("EnemyÇÃHP"), SerializeField] public int _enemyHP = 1;
     [Header("EnemyÇÃçUåÇíl"), SerializeField] public int _damageValue = 2;
@@ -14,27 +16,20 @@ public class EnemyFallMove : MonoBehaviour,IDamage
     void Start()
     {
         po = GameObject.FindWithTag("Player");
-        playerPosition = po.transform.position;
+        expBomb = GetComponent<BoxCollider2D>();
+        expBomb.enabled = false;
+        //playerPosition = po.transform.position;
         enemyPosition = transform.position;
 
         //_enemyHP = 1;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        playerPosition = po.transform.position;
+        //playerPosition = po.transform.position;
         enemyPosition = transform.position;
 
-        if (playerPosition.y > enemyPosition.y)
-        {
-            enemyPosition.y = enemyPosition.y + 0.01f;
-        }
-
-        else if (playerPosition.y < enemyPosition.y)
-        {
             enemyPosition.y = enemyPosition.y - 0.01f;
-        }
 
 
         transform.position = enemyPosition;
@@ -53,11 +48,21 @@ public class EnemyFallMove : MonoBehaviour,IDamage
         }
         else if (col.gameObject.tag == "Ground")
         {
+            expBomb.enabled = true;
             Destroy(gameObject);
         }
     }
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if(col.gameObject.tag == "Player")
+        {
+            col.gameObject.GetComponent<IDamage>().ReceiveDamage(_damageValue);
+        }
+    }
+
     public void ReceiveDamage(int damage)
     {
         _enemyHP -= damage;
     }
+
 }
