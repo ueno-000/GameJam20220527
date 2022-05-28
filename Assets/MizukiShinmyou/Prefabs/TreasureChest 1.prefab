@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5010525306830475189}
   - component: {fileID: 2875095522898628871}
   - component: {fileID: 3101673096429660172}
+  - component: {fileID: 785053065519956443}
   m_Layer: 0
   m_Name: TreasureChest 1
   m_TagString: Untagged
@@ -95,7 +96,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -111,3 +112,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.1, y: 1.68}
   m_EdgeRadius: 0
+--- !u!114 &785053065519956443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 887774883857420727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddaae70aacb13f142939118424654f6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
