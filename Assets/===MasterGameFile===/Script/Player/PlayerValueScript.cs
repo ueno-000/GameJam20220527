@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerValueScript : MonoBehaviour,IDamage
 {
+    [Header("Debugモード：?するとダメージを受けない"), SerializeField] bool _debugMode;
     /// <summary>
     /// HPの値
     /// </summary>
@@ -13,6 +14,8 @@ public class PlayerValueScript : MonoBehaviour,IDamage
 
     [SerializeField] GameObject HPController;
     [SerializeField] HPController _health;
+
+    Animator _anim;
     // Start is called before the first frame update
 
     public int HP
@@ -36,6 +39,7 @@ public class PlayerValueScript : MonoBehaviour,IDamage
     {
         _maxHP = HPController.GetComponent<HPController>()._maxHP;
         _health = _health.GetComponent<HPController>();
+        _anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -47,6 +51,10 @@ public class PlayerValueScript : MonoBehaviour,IDamage
 
     public void ReceiveDamage(int damage)
     {
-        _playerHP -= damage;
+        if (_debugMode == false)
+        {
+            _playerHP -= damage;
+            _anim.SetTrigger("damageTrigger");
+        }
     }
 }

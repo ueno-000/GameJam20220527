@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour,IGetValue
     [SerializeField]public static int _score = 0;
     [SerializeField]public Text scoreText;
     [SerializeField] GameObject config;
+
     void Start()
     {
         _score = 0;
@@ -22,7 +23,7 @@ public class GameManager : MonoBehaviour,IGetValue
         }  //      if()
        scoreText.text = _score.ToString();
     }
- public void GetPoint(int score)
+     public void GetPoint(int score)
     {
         _score += score;
     }
