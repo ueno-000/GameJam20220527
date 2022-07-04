@@ -828,7 +828,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 575603164}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16.481672, y: 1.2422653, z: -10.071112}
+  m_LocalPosition: {x: 16.482779, y: 1.2422553, z: -10.071112}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1208,7 +1208,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 974150092}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.2602, y: 2.42, z: 0}
+  m_LocalPosition: {x: 0.9649, y: 2.42, z: 0}
   m_LocalScale: {x: 1, y: 1, z: -1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1261,7 +1261,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 52.696594, y: 10.8}
+  m_Size: {x: 54.105907, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1374,7 +1374,7 @@ GameObject:
   - component: {fileID: 1150043917}
   - component: {fileID: 1150043916}
   m_Layer: 0
-  m_Name: BulletSound
+  m_Name: AudioSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1390,9 +1390,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1ae833b65fb064d40bfa1e5e3e21e01d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9a90e2c9ffe225a4586373a21a99cbe7, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.367
+  m_Volume: 0.28
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1503,6 +1503,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 434515799}
     m_Modifications:
+    - target: {fileID: 785053065519956443, guid: 36ec699d800c2e74fbd038937a680b23, type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 8300000, guid: c59e9a81ddf901f49a20ac25d4c0be31, type: 3}
+    - target: {fileID: 785053065519956443, guid: 36ec699d800c2e74fbd038937a680b23, type: 3}
+      propertyPath: itemAudio
+      value: 
+      objectReference: {fileID: 1150043916}
     - target: {fileID: 887774883857420727, guid: 36ec699d800c2e74fbd038937a680b23, type: 3}
       propertyPath: m_Name
       value: TreasureChest 1
@@ -1641,7 +1649,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7771482, y: 1}
+    m_SensorSize: {x: 2.0802646, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1972,9 +1980,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 434515799}
     m_Modifications:
+    - target: {fileID: 2145748859, guid: 17aba0250c5ddd247a72b7cf38c4cbec, type: 3}
+      propertyPath: itemAudio
+      value: 
+      objectReference: {fileID: 1150043916}
     - target: {fileID: 238946328994782483, guid: 17aba0250c5ddd247a72b7cf38c4cbec, type: 3}
       propertyPath: m_Name
       value: RecoveryBottle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3900911293589137269, guid: 17aba0250c5ddd247a72b7cf38c4cbec, type: 3}
+      propertyPath: m_Color.b
+      value: 0.2396226
+      objectReference: {fileID: 0}
+    - target: {fileID: 3900911293589137269, guid: 17aba0250c5ddd247a72b7cf38c4cbec, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6944211
+      objectReference: {fileID: 0}
+    - target: {fileID: 3900911293589137269, guid: 17aba0250c5ddd247a72b7cf38c4cbec, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4766436016677808042, guid: 17aba0250c5ddd247a72b7cf38c4cbec, type: 3}
       propertyPath: m_RootOrder
@@ -2019,6 +2043,10 @@ PrefabInstance:
     - target: {fileID: 4766436016677808042, guid: 17aba0250c5ddd247a72b7cf38c4cbec, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480136166007480148, guid: 17aba0250c5ddd247a72b7cf38c4cbec, type: 3}
+      propertyPath: m_Color.a
+      value: 0.21176471
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17aba0250c5ddd247a72b7cf38c4cbec, type: 3}
@@ -2768,7 +2796,7 @@ PrefabInstance:
     - target: {fileID: 6510653942251438915, guid: 0908317d87375b34e90295db89f9f310, type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 6200000, guid: 1af3b5a55c42572408c694b6d2808937, type: 2}
+      objectReference: {fileID: 6200000, guid: 6cd34ae0cab509148b718a41104f6997, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0908317d87375b34e90295db89f9f310, type: 3}
 --- !u!1001 &8975166501015035435
@@ -2806,13 +2834,17 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 582168158}
+    - target: {fileID: 1562390129888157121, guid: e97e69d5ef1cdf24c8191c3290da681b, type: 3}
+      propertyPath: _debugMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1691508897746133095, guid: e97e69d5ef1cdf24c8191c3290da681b, type: 3}
       propertyPath: m_Mass
       value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 1691508897746133095, guid: e97e69d5ef1cdf24c8191c3290da681b, type: 3}
       propertyPath: m_AngularDrag
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1691508897746133095, guid: e97e69d5ef1cdf24c8191c3290da681b, type: 3}
       propertyPath: m_Constraints
